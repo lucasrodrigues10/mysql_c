@@ -129,7 +129,7 @@ int main()
     MYSQL_FIELD *mfield;
     int i,j;
     MYSQL_ROW row = mysql_fetch_row(resultado);
-    printf("  ID                             Nome Filme           Ano Lancamento\n");
+    printf("  ID                                   Nome                   Genero     Ano\n");
     for(j = 0; j < totalrows; j++)
     {
         for(i = 0; i < numfields; i++)
@@ -146,7 +146,10 @@ int main()
 
                 break;
             case 2:
-                printf("%20s", val);
+                printf("%20s\t", val);
+                break;
+            case 3:
+                printf("%4s", val);
                 break;
             }
         }
@@ -159,7 +162,7 @@ int main()
     {
         printf("Digite o ID do filme desejado ou 0 para sair: ");
         scanf("%i", &op);
-        if(op>10 || op<=0)
+        if(op>totalrows || op<=0)
             break;
 
         char op_string[5];
@@ -176,7 +179,7 @@ int main()
         {
             MYSQL_RES *resultado = mysql_store_result(&conexao);
             MYSQL_ROW row = mysql_fetch_row(resultado);
-            for(i=0; i<3; i++)
+            for(i = 0; i < numfields; i++)
             {
                 char *val = row[i];
                 switch(i)
@@ -190,7 +193,10 @@ int main()
 
                     break;
                 case 2:
-                    printf("%20s\n", val);
+                    printf("%20s\t", val);
+                    break;
+                case 3:
+                    printf("%4s\n", val);
                     break;
                 }
             }
