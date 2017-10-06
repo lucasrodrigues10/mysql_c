@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1507266381 source:c:\users\notebook\documents\t_20\main.c
+	<stdio.h>
+	<mysql.h>
+	<stdlib.h>
+	<string.h>
+
