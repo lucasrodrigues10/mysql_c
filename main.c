@@ -162,6 +162,8 @@ int main()
     {
         printf("Digite o ID do filme desejado ou 0 para sair: ");
         scanf("%i", &op);
+
+        //Se o valor id for maior que o numero de registros ou menor que zero
         if(op>totalrows || op<=0)
             break;
 
@@ -174,7 +176,7 @@ int main()
                   "SELECT * FROM tabfilmes WHERE codfilme = ",op_string);
 
 
-        //Coloca a tupla na tabela
+        //Faz uma query de select e printa na tela
         if ((mysql_query(&conexao, query_procurar) == 0))
         {
             MYSQL_RES *resultado = mysql_store_result(&conexao);
