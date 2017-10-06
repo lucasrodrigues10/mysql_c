@@ -128,7 +128,6 @@ int main()
     int numfields = mysql_num_fields(resultado);
     MYSQL_FIELD *mfield;
     int i,j;
-
     MYSQL_ROW row = mysql_fetch_row(resultado);
     printf("  ID                             Nome Filme           Ano Lancamento\n");
     for(j = 0; j < totalrows; j++)
@@ -155,6 +154,56 @@ int main()
         printf("\n");
     }
 
+    int op = 1;
+    do
+    {
+        printf("Digite o ID do filme desejado ou 0 para sair: ");
+        scanf("%i", &op);
+        if(op>10 || op<=0)
+            break;
+
+        char op_string[5];
+        snprintf(op_string, sizeof(op_string), "%d", op);
+
+        //Cria a query de procura
+        char query_procurar[MAX];
+        snprintf( query_procurar, sizeof( query_procurar ), "%s%s",
+                  "SELECT * FROM tabfilmes WHERE codfilme = ",op_string);
+
+
+        //Coloca a tupla na tabela
+        if ((mysql_query(&conexao, query_procurar) == 0))
+        {
+            MYSQL_RES *resultado = mysql_store_result(&conexao);
+            MYSQL_ROW row = mysql_fetch_row(resultado);
+            for(i=0; i<3; i++)
+            {
+                char *val = row[i];
+                switch(i)
+                {
+                case 0:
+                    printf("%4s\t", val);
+
+                    break;
+                case 1:
+                    printf("%35s\t", val);
+
+                    break;
+                case 2:
+                    printf("%20s\n", val);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            printf("Registro nao foi encontrado\n");
+            printf("MySQL error: %s\n", mysql_error(&conexao));
+            exit(1);
+        }
+
+    }
+    while(op!=0);
 
 
     //Libera result para nao ter leak de memoria
