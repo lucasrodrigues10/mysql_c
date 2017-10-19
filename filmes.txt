@@ -1,10 +1,10 @@
-O_Poderoso_Chefao Drama 1972
-A_Lista_De_Schindler Guerra 1993
-O_Senhor_Dos_Aneis Fantasia 2003
-Um_Sonho_De_Liberdade Drama 1995
-Forrest_Gump Comedia_Dramatica 1994
-A_Espera_De_Um_Milagre Policial 2000
-Velozes_E_Furiosos_7 Acao 2015
-Batman_O_Cavaleiro_Das_Trevas Acao 2008
-Star_Wars_O_Despertar_Da_Forca Ficcao_Cientifica 2015
-Vingadores_Era_De_Ultron Aventura 2015
+O Poderoso Chefao;Drama;1972
+A Lista De Schindler;Guerra;1993
+O Senhor Dos Aneis;Fantasia;2003
+Um Sonho De Liberdade;Drama;1995
+Forrest Gump;Dramatica;1994
+A Espera De Um Milagre;Policial;2000 
+Velozes E Furiosos 7;Acao;2015
+Batman O Cavaleiro Das Trevas;Acao;2008
+Star Wars O Despertar Da Forca;Ficcao Cientifica;2015
+Vingadores Era De Ultronsss;Aventura;2015

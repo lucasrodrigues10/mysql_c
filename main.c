@@ -51,9 +51,9 @@ int main()
     }
     else
     {
-        printf("Database nao foi destruida");
-        printf("MySQL error: %s\n", mysql_error(&conexao));
-        exit(1);
+        printf("Database nao foi destruida\n");
+        //printf("MySQL error: %s\n", mysql_error(&conexao));
+        //exit(1);
     }
 
     //Cria database
@@ -92,15 +92,15 @@ int main()
     {
         //Coloca os dados na variavel
         char * pch;
-        pch = strtok (buff," ,.-");
+        pch = strtok (buff,";,.-");
 
         //nomefilme
         strcpy(nomefilme, pch);
-        pch = strtok (NULL, " ,.-");
+        pch = strtok (NULL, ";,.-");
 
         //generofilme
         strcpy(generofilme, pch);
-        pch = strtok (NULL, " ,.-");
+        pch = strtok (NULL, ";,.-");
 
         //anolancamento
         strcpy(anolancamento, pch);
@@ -212,7 +212,6 @@ int main()
 
     }
     while(op!=0);
-
 
     //Libera result para nao ter leak de memoria
     mysql_free_result(resultado);
